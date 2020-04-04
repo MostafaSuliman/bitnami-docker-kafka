@@ -6,8 +6,11 @@ services:
   zookeeper:
     image: 'bitnami/zookeeper:3'
     networks: kafka
-    mode: global
-    constraint: node.labels.zoo==1
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.labels.zoo==1
     ports:
      - '2181:2181'
     environment:
@@ -15,8 +18,11 @@ services:
   kafka:
     image: 'bitnami/kafka:2'
     networks: kafka-net
-    mode: global
-    constraint: node.labels.kafka==1
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.labels.kafka==1
     ports:
       - '9092:9092'
       - '29092:29092'
@@ -33,6 +39,11 @@ services:
   kafka2:
     image: 'bitnami/kafka:2'
     networks: kafka
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.labels.kafka==2
     ports:
       - '9092:9092'
       - '9093:9093'
@@ -49,6 +60,11 @@ services:
   kafka3:
     image: 'bitnami/kafka:2'
     networks: kafka
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.labels.kafka==3
     ports:
       - '9092:9092'
       - '9094:9094'
