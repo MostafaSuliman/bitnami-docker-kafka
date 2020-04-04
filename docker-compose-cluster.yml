@@ -25,7 +25,7 @@ services:
           - node.labels.kafka==1
     ports:
       - '9095:9095'
-      - '9092:9092'
+      - '29092:29092'
     environment:
       - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
       - ALLOW_PLAINTEXT_LISTENER=yes
@@ -46,7 +46,7 @@ services:
           - node.labels.kafka==2
     ports:
       - '9093:9093'
-      - '9092:9092'
+      - '39092:39092'
     environment:
       - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
       - ALLOW_PLAINTEXT_LISTENER=yes
@@ -67,7 +67,7 @@ services:
           - node.labels.kafka==3
     ports:
       - '9094:9094'
-      - '9092:9092'
+      - '49092:49092'
     environment:
       - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
       - ALLOW_PLAINTEXT_LISTENER=yes
